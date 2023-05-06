@@ -33,27 +33,5 @@ class StripeController extends Controller
         ]);
 
         return $checkout;
-
-        /*$stripe = new \Stripe\StripeClient(env('STRIPE_API_KEY'));
-
-        $checkout = $stripe->checkout->sessions->create([
-            'success_url' => 'http://localhost/success',
-            'cancel_url' => 'http://localhost/cancel',
-            'line_items' => [
-                [
-                    'price_data' => [
-                        'currency' => 'eur',
-                        'unit_amount' => 2000,
-                    ],
-                    'product_data' => [
-                        'name' => "Medalla Hermandad"
-                    ],
-                    'quantity' => 1,
-                ],
-            ],
-            'mode' => 'payment',
-        ]);
-
-        return $checkout;*/
     }
 }

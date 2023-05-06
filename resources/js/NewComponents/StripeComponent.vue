@@ -8,7 +8,8 @@
         data() {
             return {
                 publishableKey:'pk_test_51MnGmGK1P0dJ1e9fivkKGA0aICuK2W9pcWD4wIHjegcFss7HCJvHf4xG3irfue1cwN9v1ubyc84Kvj5RG8epx0hq00gMstB8TH',
-                sessionId: null
+                sessionId: null,
+                loading: false,
             }
         },
         mounted() {
@@ -32,38 +33,6 @@
             },
         },
     }
-
-    /*export default {
-        components: {
-            StripeCheckout,
-        },
-        data() {
-            return {
-                publishableKey:'pk_test_51MnGmGK1P0dJ1e9fivkKGA0aICuK2W9pcWD4wIHjegcFss7HCJvHf4xG3irfue1cwN9v1ubyc84Kvj5RG8epx0hq00gMstB8TH',
-                sessionId: null
-            }
-        },
-        mounted() {
-            console.log('Component mounted')
-            this.getSession()
-        },
-        methods: {
-            getSession() {
-
-                axios.get('getSession')
-                .then(res => {
-                    this.sessionId = res.data.id
-                }).catch(err => {
-                     // handle the error her
-                })
-
-            },
-            submit () {
-            // You will be redirected to Stripe's secure checkout page
-            this.$refs.checkoutRef.redirectToCheckout();
-        },
-    },
-};*/
 </script>
 
 <template>
@@ -75,9 +44,10 @@
             ref="checkoutRef"
             :pk="publishableKey"
             :sessionId="sessionId"
-            />
+        />
 
-            <button @click="submit" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Pagar Stripe</button>
+        <button @click="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Pago Unico</button>
+
     </div>
 </template>
 

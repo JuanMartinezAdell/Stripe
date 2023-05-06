@@ -29,7 +29,6 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 });
 
-
 Route::get('/getSession', [StripeController::class, 'getSession']);
 
 /*Route::middleware([
