@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\SubscriptionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +27,55 @@ use App\Http\Controllers\StripeController;
 });*/
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
+    return Inertia::render('Stripe');
 });
 
+Route::get('/cancel', function () {
+    return Inertia::render('Stripe');
+});
+
+Route::get('/succes', function () {
+    return Inertia::render('Stripe');
+});
+
+#Subcripciones
+Route::get('/suscription', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+
 Route::get('/getSession', [StripeController::class, 'getSession']);
+Route::get('/getSessionMensual', [SubscriptionsController::class, 'getSessionMensual']);
+Route::get('/getSessionAnual', [SubscriptionsController::class, 'getSessionAnual']);
+
+
+#rutas cancel / sucess
+
+Route::get('/cancel/mensual', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+Route::get('/succes/mensual', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+Route::get('/cancel/anual', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+Route::get('/succes/anual', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+Route::get('/cancel/semestral', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+Route::get('/succes/semestral', function () {
+    return Inertia::render('StripeSubscription');
+});
+
+#Fin Subcripciones
 
 /*Route::middleware([
     'auth:sanctum',
